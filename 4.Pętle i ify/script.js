@@ -85,7 +85,7 @@ for (let i = 1; i <= 10; i++) {
 
 //d
 let str = '*1234';
-for (j = 0; j <= 12; j++) {
+for (let j = 0; j <= 12; j++) {
     if (j === 6) {
         console.log('-----');
     } else if (j < 6) {
