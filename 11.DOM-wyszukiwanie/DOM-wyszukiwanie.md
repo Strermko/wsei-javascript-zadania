@@ -4,7 +4,7 @@ Wyszukaj na stronie wszystkie elementy o klasie list i zapisz wynik do odpowiedn
 
 #### Zadanie 2
 
-Stwórz funkcję która będzie zwracać elementy(tagi) na podstawie podstawie przesłanego parametru. Wynik działania funkcji zapisz do zmiennej i wyświetl w konsoli.
+Stwórz funkcję która będzie zwracać elementy(tagi) na podstawie przesłanego parametru. Wynik działania funkcji zapisz do zmiennej i wyświetl w konsoli.
 
 #### Zadanie 3
 
