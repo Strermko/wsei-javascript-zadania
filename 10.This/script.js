@@ -44,3 +44,80 @@ Person.prototype.lovedFood = function() {
 person2.lovedFood();
 person2.addFood('Croisant');
 person2.lovedFood();
+
+
+// Zadanie 3
+const calculator = {
+
+    input: function(a, b){
+        this.a = a;
+        this.b = b;
+    },
+
+    sum: function(){
+        console.log(this.a + this.b);
+    },
+
+    subtract: function(){
+        console.log(this.a - this.b);
+    },
+
+    multiply: function(){
+        console.log(this.a * this.b);
+    },
+
+    divide: function() {
+        this.b === 0 ? console.log("Can't divide by 0!") : console.log(this.a / this.b);
+    }
+};
+
+calculator.input(6, 0);
+calculator.sum();
+calculator.subtract();
+calculator.multiply();
+calculator.divide();
+
+
+// Zadanie 4
+
+const move = {
+
+    position: function(){
+        if(this.location === undefined){
+            this.up();
+        } else if(this.location === 'up'){
+            this.down();
+        } else{
+            this.up();
+        }
+    },
+
+    up: function(){
+        for(let i = 0; i <= 5; i++){
+            if ( i === 0 ){
+                console.log(`I'm down`);
+            } else if(i === 5){
+                console.log(`I'm up`);
+                this.location = 'up'; 
+            } else {
+                console.log(`I'm ${i} stair`);
+            }
+        }
+    },
+
+    down:function(){
+        for(let i = 5; i >= 0; i--){
+            if ( i === 0 ){
+                console.log(`I'm down`);
+                this.location = 'down'; 
+            } else if(i === 5){
+                console.log(`I'm up`);
+            } else {
+                console.log(`I'm ${i} stair`);
+            }
+        }
+    }
+};
+
+move.position();
+move.position();
