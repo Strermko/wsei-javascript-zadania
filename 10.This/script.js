@@ -1,30 +1,21 @@
 // Zadanie 1
-class Person{
-    constructor(name, surename, age, country, city, food = []){
+class Person {
+    constructor(name, surename, age, country, city, food = []) {
         this.name = name,
-        this.surename = surename,
-        this.age = age,
-        this.country = country,
-        this.city = city,
-        this.food = food;
+            this.surename = surename,
+            this.age = age,
+            this.country = country,
+            this.city = city,
+            this.food = food;
     }
-    
-    allInfo(){
+
+    allInfo() {
         console.log(`Name: ${this.name} ${this.surename}, age: ${this.age}, 
         country: ${this.country}, city: ${this.city}`);
     }
 
-    getOlder(){
+    getOlder() {
         this.age++;
-    }
-
-    // Zadanie 2
-    lovedFood(){
-        console.log(this.food);
-    }
-
-    addFood(food){
-        this.food.push(food);
     }
 }
 
@@ -41,9 +32,15 @@ person.getOlder();
 // console.log('One year latter: ');
 // console.log(person2);
 // console.log(person);
-Person.prototype.addFood = function(){
-    
-}
+
+// Zadanie 2
+Person.prototype.addFood = function(food) {
+    this.food.push(food);
+};
+Person.prototype.lovedFood = function() {
+    console.log(this.food);
+};
+
 person2.lovedFood();
 person2.addFood('Croisant');
 person2.lovedFood();
