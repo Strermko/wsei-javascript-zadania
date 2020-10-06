@@ -15,3 +15,15 @@ console.log(test);
 const listId = document.querySelector('#list');
  */
 const listId = document.getElementById('list');
+
+// Zadanie 4
+/* function searcher(target){
+    const list = document.querySelectorAll(target);
+    return list;
+} */
+
+const li = searcher('li'),
+    ul = searcher('ul'),
+    span = searcher('span'),
+    divSpan = searcher('.list span'),
+    idSpan = searcher('#spans span');
