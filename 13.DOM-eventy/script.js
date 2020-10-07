@@ -99,4 +99,44 @@ document.addEventListener('scroll', (item) => {
 const calculator = document.getElementById('calculator'),
     textArea = calculator.querySelector('input'),
     symbols = calculator.querySelectorAll('button');
+let cash = 0,
+    counter = '';
 
+textArea.value = '';
+
+symbols.forEach((el) => {
+    el.addEventListener('click', item => {
+        const target = item.target,
+            val = parseInt(target.textContent);
+
+        textArea.value
+        if (!isNaN(val)) {
+            counter += val;
+            textArea.value = counter;
+        } else {
+            if (cash === 0) {
+                cash = parseInt(textArea.value);
+            } else {
+                switch (target.textContent) {
+                    case '+':
+                        cash += parseInt(textArea.value);
+                        break;
+                    case '-':
+                        cash -= parseInt(textArea.value);
+                        break;
+                    case '*':
+                        cash = Math.round(cash * parseInt(textArea.value));
+                        break;
+                    case '/':
+                        cash = Math.round(cash / parseInt(textArea.value));
+                        break;
+                    default:
+                        cash = 0;
+                        break;
+                }
+            }
+            textArea.value = cash;
+            counter = '';
+        }
+    });
+});
