@@ -99,8 +99,10 @@ document.addEventListener('scroll', (item) => {
 const calculator = document.getElementById('calculator'),
     textArea = calculator.querySelector('input'),
     symbols = calculator.querySelectorAll('button');
-let cash = 0,
-    counter = '';
+let lastNumber = 0,
+    currentNumber = 0,
+    counter = '',
+    lastOperator = '';
 
 textArea.value = '';
 
@@ -109,34 +111,34 @@ symbols.forEach((el) => {
         const target = item.target,
             val = parseInt(target.textContent);
 
-        textArea.value
         if (!isNaN(val)) {
             counter += val;
             textArea.value = counter;
         } else {
-            if (cash === 0) {
-                cash = parseInt(textArea.value);
+            if (lastNumber === 0 && currentNumber === 0) {
+                lastNumber = parseInt(textArea.value);
             } else {
-                switch (target.textContent) {
-                    case '+':
-                        cash += parseInt(textArea.value);
-                        break;
-                    case '-':
-                        cash -= parseInt(textArea.value);
-                        break;
-                    case '*':
-                        cash = Math.round(cash * parseInt(textArea.value));
-                        break;
-                    case '/':
-                        cash = Math.round(cash / parseInt(textArea.value));
-                        break;
-                    default:
-                        cash = 0;
-                        break;
-                }
+                currentNumber = Math.floor(calculate(lastOperator, lastNumber, parseInt(textArea.value)))
+                lastNumber = currentNumber;
             }
-            textArea.value = cash;
+            lastOperator = target.textContent;
             counter = '';
+            textArea.value = currentNumber;
         }
     });
 });
+
+function calculate(symbol, a, b) {
+    switch (symbol) {
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        case '*':
+            return a * b;
+        case '/':
+            return a / b;
+        default:
+            return a;
+    }
+}
