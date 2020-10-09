@@ -50,7 +50,7 @@ Jeśli liczba będzie parzysta ustaw klasę 'even' jak nieparzysta 'odd;
 
 #### Zadanie 10
 
-Napisz funkcję do której przekaż element o id "longList". Następnie zwróć tablicę wypełnioną wartościami pobranymi z elementów ten listy.
+Napisz funkcję do której przekaż element o id "longList". Następnie zwróć tablicę wypełnioną wartościami pobranymi z elementów tej listy.
 
 #### Zadanie 11
 
