@@ -1,3 +1,6 @@
+// Add indexOf method to NodeList
+NodeList.prototype.indexOf = Array.prototype.indexOf;
+
 // Zadanie 1
 /* const el = document.createElement('div');
 
@@ -17,9 +20,6 @@ arr.forEach(element => {
 document.body.append(el);
 
 // Zadanie 3
-
-// Add indexOf method to NodeList
-NodeList.prototype.indexOf = Array.prototype.indexOf;
 
 el.addEventListener('click', (item) => {
     const li = el.querySelectorAll('li'),
@@ -45,7 +45,7 @@ btn.addEventListener('click', () => {
 }); */
 
 // Zadanie 5
-function divCreator(num) {
+/* function divCreator(num) {
     for (i = 1; i <= num; i++) {
         const div = document.createElement('div');
 
@@ -53,8 +53,67 @@ function divCreator(num) {
         document.body.append(div);
     }
 }
-divCreator(8);
+divCreator(8); */
 // Posible to add random number with Math.flor(Math.random());
 // But this way look better;
 
 // Zadanie 6
+/* const div1 = document.createElement('div'),
+    div2 = document.createElement('div'),
+    div3 = document.createElement('div'),
+    span1 = document.createElement('span'),
+    span2 = document.createElement('span');
+
+div1.textContent = 'to jest div';
+span1.textContent = 'to jest span';
+div3.textContent = 'to jest div';
+span2.textContent = 'to jest span';
+div2.append(div3);
+
+document.body.append(div1);
+document.body.append(span1);
+document.body.append(div2);
+document.body.append(span2); */
+
+// Zadanie 7
+/* const ul1 = document.createElement('ul'),
+    ul2 = document.createElement('ul'),
+    btn1 = document.createElement('button'),
+    btn2 = document.createElement('button'),
+    arr = ['banan', 'melon', 'czeresznia', 'ananas', 'pomidor', 'kokos'];
+
+arr.forEach(element => {
+    const li = document.createElement('li');
+    li.textContent = element;
+    ul1.append(li);
+});
+
+btn1.textContent = 'Move last element';
+btn2.textContent = 'Move last element';
+ul1.style.border = '1px solid black';
+ul1.style.width = '100px';
+ul2.style.border = '1px solid red';
+ul2.style.width = '100px';
+
+document.body.append(ul1);
+document.body.append(btn1);
+document.body.append(ul2);
+document.body.append(btn2);
+
+const btns = document.querySelectorAll('button');
+
+function mover(btn, donorList, recipientList) {
+    btn.addEventListener('click', () => {
+        donorList.append(recipientList.lastElementChild);
+        if (recipientList.childNodes.length === 0) {
+            btn.disabled = true;
+        } else {
+            btns.forEach(el => {
+                el.disabled = false;
+            });
+        }
+    });
+}
+
+mover(btns[0], ul2, ul1);
+mover(btns[1], ul1, ul2); */
