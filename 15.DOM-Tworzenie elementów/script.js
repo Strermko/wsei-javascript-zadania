@@ -7,6 +7,7 @@ NodeList.prototype.indexOf = Array.prototype.indexOf;
 el.textContent = 'To jest nowy element';
 document.body.append(el); */
 
+
 // Zadanie 2
 /* const el = document.createElement('ul'),
     arr = ['banan', 'melon', 'czeresznia', 'ananas', 'pomidor', 'kokos'];
@@ -20,7 +21,6 @@ arr.forEach(element => {
 document.body.append(el);
 
 // Zadanie 3
-
 el.addEventListener('click', (item) => {
     const li = el.querySelectorAll('li'),
         arr = [];
@@ -34,6 +34,7 @@ el.addEventListener('click', (item) => {
     });
 }); */
 
+
 // Zadanie 4
 /* const btn = document.createElement('button');
 
@@ -43,6 +44,7 @@ document.body.append(btn);
 btn.addEventListener('click', () => {
     document.body.remove(btn);
 }); */
+
 
 // Zadanie 5
 /* function divCreator(num) {
@@ -56,6 +58,7 @@ btn.addEventListener('click', () => {
 divCreator(8); */
 // Posible to add random number with Math.flor(Math.random());
 // But this way look better;
+
 
 // Zadanie 6
 /* const div1 = document.createElement('div'),
@@ -74,6 +77,7 @@ document.body.append(div1);
 document.body.append(span1);
 document.body.append(div2);
 document.body.append(span2); */
+
 
 // Zadanie 7
 /* const ul1 = document.createElement('ul'),
@@ -118,6 +122,7 @@ function mover(btn, donorList, recipientList) {
 mover(btns[0], ul2, ul1);
 mover(btns[1], ul1, ul2); */
 
+
 // Zadanie 8
 /* const form = document.createElement('form'),
     input = document.createElement('input'),
@@ -153,4 +158,75 @@ submit.addEventListener('click', (item) => {
     input.value = '';
 }); */
 
+
 // Zadanie 9
+const form = document.createElement('form'),
+    submitBtn = document.createElement('button'),
+    newInputRaw = document.createElement('button'),
+    inputNameVal = ['name', 'surename', 'age', 'children'];
+
+for (i = 0; i < inputNameVal.length; i++) {
+    const input = document.createElement('input'),
+        deleteBtn = document.createElement('div');
+
+    deleteBtn.textContent = 'Delete';
+    input.required = true;
+    input.name = inputNameVal[i];
+    input.placeholder = inputNameVal[i].charAt(0).toUpperCase() + inputNameVal[i].slice(1);
+    form.append(input);
+    form.append(deleteBtn);
+}
+
+newInputRaw.textContent = 'More';
+submitBtn.textContent = 'Utwórz';
+submitBtn.type = 'submit';
+form.style.margin = 'auto';
+form.style.width = '165px';
+form.style.border = '1px solid black';
+
+form.append(newInputRaw);
+form.append(submitBtn);
+
+document.body.append(form);
+
+newInputRaw.addEventListener('click', item => {
+    item.preventDefault();
+    const newInput = document.createElement('input');
+    newInput.name = 'other';
+    newInput.placeholder = 'Other';
+    newInputRaw.before(newInput);
+});
+
+form.addEventListener('submit', item => {
+    item.preventDefault();
+
+    const formData = new FormData(form);
+    dataObj = Object.fromEntries(formData.entries());
+
+    const newTable = document.createElement('table'),
+        keyLine = document.createElement('tr'),
+        valueLine = document.createElement('tr');
+
+    for (key in dataObj) {
+        const newKey = document.createElement('th'),
+            newValue = document.createElement('th');
+
+        newKey.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+        newValue.textContent = dataObj[key];
+
+        newKey.style.border = '1px solid black';
+        newValue.style.border = '1px solid black';
+
+        keyLine.append(newKey);
+        valueLine.append(newValue);
+    }
+
+    newTable.append(keyLine);
+    newTable.append(valueLine);
+    newTable.style.margin = 'auto';
+    newTable.style.border = '1px solid black';
+
+    document.body.append(newTable);
+
+    form.reset();
+});
