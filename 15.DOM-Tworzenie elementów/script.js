@@ -117,3 +117,40 @@ function mover(btn, donorList, recipientList) {
 
 mover(btns[0], ul2, ul1);
 mover(btns[1], ul1, ul2); */
+
+// Zadanie 8
+/* const form = document.createElement('form'),
+    input = document.createElement('input'),
+    submit = document.createElement('button');
+
+form.textContent = `Wpisz jaki element chcesz utworzyć, 
+z jakim tekstem, z kolorem tekstu 
+i ile razy ma być ten element powtórzony na stronie.`;
+form.style.width = '300px';
+input.placeholder = 'Use ; separator';
+submit.textContent = 'Utwórz';
+form.append(input);
+form.append(submit);
+document.body.append(form);
+
+submit.addEventListener('click', (item) => {
+    item.preventDefault();
+
+    const param = input.value.split('; '),
+        count = +param[3],
+        color = param[2],
+        tekst = param[1];
+
+    for (i = 0; i < count; i++) {
+        const elelement = document.createElement(param[0]);
+
+        elelement.textContent = tekst;
+        elelement.style.color = color;
+
+        document.body.append(elelement);
+    }
+
+    input.value = '';
+}); */
+
+// Zadanie 9
