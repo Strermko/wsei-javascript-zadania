@@ -159,44 +159,49 @@ submit.addEventListener('click', (item) => {
 }); */
 
 
-// Zadanie 9
-const form = document.createElement('form'),
+// Zadanie 9 + 10
+// --- Create form ---- //
+/* const form = document.createElement('form'),
     submitBtn = document.createElement('button'),
-    newInputRaw = document.createElement('button'),
+    newInputRow = document.createElement('button'),
     inputNameVal = ['name', 'surename', 'age', 'children'];
 
 for (i = 0; i < inputNameVal.length; i++) {
     const input = document.createElement('input'),
-        deleteBtn = document.createElement('div');
-
-    deleteBtn.textContent = 'Delete';
+        deleteBtn = delBtn();
     input.required = true;
     input.name = inputNameVal[i];
-    input.placeholder = inputNameVal[i].charAt(0).toUpperCase() + inputNameVal[i].slice(1);
+    input.placeholder = capFirstLetter(inputNameVal[i]);
     form.append(input);
     form.append(deleteBtn);
 }
 
-newInputRaw.textContent = 'More';
+newInputRow.textContent = 'More';
 submitBtn.textContent = 'Utwórz';
 submitBtn.type = 'submit';
 form.style.margin = 'auto';
 form.style.width = '165px';
 form.style.border = '1px solid black';
 
-form.append(newInputRaw);
+form.append(newInputRow);
 form.append(submitBtn);
 
 document.body.append(form);
 
-newInputRaw.addEventListener('click', item => {
+// ---- Add aditional row ---- //
+newInputRow.addEventListener('click', item => {
     item.preventDefault();
-    const newInput = document.createElement('input');
-    newInput.name = 'other';
-    newInput.placeholder = 'Other';
-    newInputRaw.before(newInput);
+    const newInput = document.createElement('input'),
+        deleteBtn = delBtn();
+
+    newInput.name = prompt('Row name');
+    newInput.placeholder = newInput.name;
+    newInputRow.before(newInput);
+    newInputRow.before(deleteBtn);
+    rawRemower();
 });
 
+// --- Tabel create event ---- //
 form.addEventListener('submit', item => {
     item.preventDefault();
 
@@ -211,7 +216,7 @@ form.addEventListener('submit', item => {
         const newKey = document.createElement('th'),
             newValue = document.createElement('th');
 
-        newKey.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+        newKey.textContent = capFirstLetter(key);
         newValue.textContent = dataObj[key];
 
         newKey.style.border = '1px solid black';
@@ -227,6 +232,104 @@ form.addEventListener('submit', item => {
     newTable.style.border = '1px solid black';
 
     document.body.append(newTable);
-
+    rawRemower();
     form.reset();
 });
+
+// ---- Starter function call ---- //
+rawRemower();
+
+// ---- Aditional functionality ---- //
+function delBtn() {
+    deleteBtn = document.createElement('div');
+
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.className = 'delBtn';
+
+    return deleteBtn;
+}
+
+function rawRemower() {
+    const delBtn = document.querySelectorAll('.delBtn');
+
+    delBtn.forEach(el => {
+        el.addEventListener('click', item => {
+            item.target.previousElementSibling.remove();
+            item.target.remove();
+        })
+    });
+
+}
+
+// Ewentualnie 10 zadanie
+function capFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+} */
+
+
+// Zadanie 11
+/* function numHunter(str) {
+    const numArr = str.match(/\d/gim).map(el => +el),
+        sum = numArr.reduce((acc, value) => acc + value),
+        productOfNum = numArr.reduce((acc, value) => acc * value);
+
+    console.log(sum);
+    for (i = 1; i <= productOfNum; i++) {
+        const div = document.createElement('div');
+
+        div.textContent = i;
+        document.body.append(div);
+    }
+}
+
+numHunter('srte 4 sdfae3rw 1 '); */
+
+// Zadanie 12
+/* function ala(str) {
+    const obj = {
+        strInObj: str,
+        haveAla: function() {
+            if (this.strInObj.includes('Ala')) {
+                this.strInObj = str.replace('Ala', 'Ola');
+                console.log(this.strInObj);
+            } else {
+                const div = document.createElement('div');
+
+                div.textContent = 'Słowo Ala nie występuje w tekście';
+                document.body.append(div);
+            }
+        }
+    }
+
+    obj.haveAla();
+}
+
+ala('Tu jest Ala'); */
+
+// Zadanie 13
+// --- Return length od string in array --- //
+/* function lengthArr(arr = []) {
+    return arr.map(el => el.length);
+}
+
+function sumOfVal(arr = []) {
+    return arr.reduce((a, b) => a + b);
+}
+
+function averageVal(arr = []) {
+    return (arr.reduce((a, b) => a + b) / arr.length).toFixed(1);
+}
+console.log(averageVal([1, 3, 5, 2, 78])); */
+
+// Zadanie 14
+const obj = {
+    name: '',
+    surname: '',
+    age: ''
+}
+
+function objectValueSetter() {
+    obj.name = 'Pipka';
+    obj.surname = 'Kirka';
+    obj.age = 25;
+}
