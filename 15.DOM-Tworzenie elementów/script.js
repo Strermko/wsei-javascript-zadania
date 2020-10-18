@@ -332,4 +332,22 @@ function objectValueSetter() {
     obj.name = 'Pipka';
     obj.surname = 'Kirka';
     obj.age = 25;
+    if (typeof(obj.name) === "string" && obj.name.length >= 5 ||
+        typeof(obj.surname) === "string" && obj.surname.length >= 5) {
+        const btn = document.createElement('button');
+        btn.textContent = 'Defaul';
+        document.body.append(btn);
+        btn.addEventListener('click', objectDefaultValue);
+    }
 }
+
+function objectDefaultValue() {
+    obj.name = '';
+    obj.surname = '';
+    obj.age = '';
+    // Test log
+    console.log(obj);
+}
+objectValueSetter();
+// Test log
+console.log(obj);
